@@ -96,7 +96,7 @@ export const ROUTES = {
 
 export const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
-export const PUBLIC_API_URL = process.env.NEXT_PUBLIC_API_URL;
+export const PUBLIC_API_URL = process.env.BACKEND_API_URL || process.env.NEXT_PUBLIC_API_URL;
 
 export const ImagePath: string = "/assets/images";
 export const ImageBaseUrl = process.env.NEXT_PUBLIC_STORAGE_URL;

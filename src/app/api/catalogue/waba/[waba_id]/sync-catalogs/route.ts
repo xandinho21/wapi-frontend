@@ -2,7 +2,7 @@ import { authoption } from "@/src/app/api/auth/[...nextauth]/authOption";
 import { getServerSession } from "next-auth";
 import { NextResponse } from "next/server";
 
-const BACKEND_API_URL = process.env.NEXT_PUBLIC_API_URL;
+const BACKEND_API_URL = process.env.BACKEND_API_URL || process.env.NEXT_PUBLIC_API_URL;
 
 export async function POST(req: Request, { params }: { params: Promise<{ waba_id: string }> }) {
   try {

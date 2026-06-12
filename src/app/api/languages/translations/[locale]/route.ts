@@ -2,7 +2,7 @@ import { getServerSession } from "next-auth";
 import { NextRequest, NextResponse } from "next/server";
 import { authoption } from "../../../auth/[...nextauth]/authOption";
 
-const BACKEND_API_URL = process.env.NEXT_PUBLIC_API_URL;
+const BACKEND_API_URL = process.env.BACKEND_API_URL || process.env.NEXT_PUBLIC_API_URL;
 
 export async function GET(_request: NextRequest, { params }: { params: Promise<{ locale: string }> }) {
   try {

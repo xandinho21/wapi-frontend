@@ -50,7 +50,7 @@ export const authoption: NextAuthOptions = {
         }
 
         try {
-          const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/login`, {
+          const res = await fetch(`${process.env.BACKEND_API_URL || process.env.BACKEND_API_URL || process.env.NEXT_PUBLIC_API_URL}/auth/login`, {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
@@ -98,7 +98,7 @@ export const authoption: NextAuthOptions = {
         }
 
         try {
-          const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/impersonation/status`, {
+          const res = await fetch(`${process.env.BACKEND_API_URL || process.env.NEXT_PUBLIC_API_URL}/impersonation/status`, {
             method: "GET",
             headers: {
               "Content-Type": "application/json",
@@ -112,7 +112,7 @@ export const authoption: NextAuthOptions = {
             throw new Error(data?.message || "Invalid impersonation token");
           }
 
-          const profileRes = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/profile`, {
+          const profileRes = await fetch(`${process.env.BACKEND_API_URL || process.env.NEXT_PUBLIC_API_URL}/auth/profile`, {
             method: "GET",
             headers: {
               Authorization: `Bearer ${credentials.token}`,
