@@ -29,8 +29,12 @@ function applyFavicon(href: string) {
 
   if (links.length > 0) {
     links.forEach((link: any) => {
-      const normalizedLinkHref = new URL(link.href, window.location.origin).href;
-      if (normalizedLinkHref !== normalizedHref) {
+      try {
+        const normalizedLinkHref = new URL(link.href || "", window.location.origin).href;
+        if (normalizedLinkHref !== normalizedHref) {
+          link.href = href;
+        }
+      } catch {
         link.href = href;
       }
     });
